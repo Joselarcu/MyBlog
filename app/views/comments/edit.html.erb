@@ -1,0 +1,12 @@
+<h1>Edit Comment</h1>
+
+
+<%=form_for @comment do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :content, 'Content' %>
+    <%= f.text_area :content, row: 100 %>
+  </div> 
+  
+  <%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+<% end %>

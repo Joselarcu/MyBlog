@@ -1,0 +1,26 @@
+<% provide(:title, 'New Post') %>
+
+<div class = "row">
+  <div class="span3 offset1">
+
+  <h1>new Post</h1>
+  
+    <%= form_for(@post) do |f| %>
+
+      <% if @post.errors.any? %>
+         <h2>Errores:</h2>      
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <div class="form-group">
+        <%= render 'fields', f:f %>
+      </div>
+        <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+      
+    <% end %>
+  </div>
+</div>

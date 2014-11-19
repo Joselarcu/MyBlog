@@ -1,0 +1,18 @@
+<br>
+<% @posts.each do |post| %>
+  <div id="post_<%=post.id%>">
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <small><%= post.created_at %></small>
+  <p>
+   <%=post.content.first(300)%>
+  </p>
+  <% if can? :delete, @post %>
+  <%= link_to 'Delete',  post, method: :delete, data: { confirm: 'are you sure?' }, remote: true %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <% end %>
+  <br>
+  </div>
+<% end %>
+<% if can? :add, @post %>
+  <%= link_to 'Add Post', new_post_path %>
+<% end %>

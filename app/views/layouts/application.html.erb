@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Myblog</title>
+
+    <meta charset="utf-8" />
+
+    <title>My Blog</title>
+    
+    <%= stylesheet_link_tag    "application" %>
+     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+      <br>
+    <header class="text-right">
+      <div class="user_nav">
+        <% if current_user %>
+          Logged in as <%= current_user.username %>.
+          <%= link_to "Log out", logout_path %>
+        <% else %>
+          <%= link_to "Sign up", signup_path %> or
+          <%= link_to "log in", login_path %>.
+          <% end %>
+      </div>
+    </header>
+            
+      <h1 class="align-right">My Blog</h1>
+
+          
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+
+      <%# footer %>
+      <footer class="text_center">
+        <%= render '/layouts/footer' %>
+      </footer>
+   
+  </body>
+</html>
