@@ -1,18 +1,27 @@
 <br>
-<% @posts.each do |post| %>
-  <div id="post_<%=post.id%>">
-  <h2><%= link_to post.title, post_path(post) %></h2>
-  <small><%= post.created_at %></small>
-  <p>
-   <%=post.content.first(300)%>
-  </p>
-  <% if can? :delete, @post %>
-  <%= link_to 'Delete',  post, method: :delete, data: { confirm: 'are you sure?' }, remote: true %>
-  <%= link_to 'Edit', edit_post_path(post) %>
+
+  <% @posts.each do |post| %>
+  
+    <div id="post_<%=post.id%>">
+      <h1><%= link_to post.title, post_path(post) %></h1>
+      <small><%= post.created_at %></small>
+      <br>
+      <p class="lead">
+       <%=post.content.first(320) + "..."%>
+      </p>
+     
+      <h3><%= link_to "Read more", post_path(post) %></h3>
+      <% if can? :delete, @post %>
+      <%= link_to 'Delete',  post, method: :delete, data: { confirm: 'are you sure?' }, remote: true %>
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <% end %>
+      <br>
+    </div>
+
+<% end %>
+
+<div class="row">
+  <% if can? :add, @post %>
+    <%= link_to 'Add Post', new_post_path %>
   <% end %>
-  <br>
-  </div>
-<% end %>
-<% if can? :add, @post %>
-  <%= link_to 'Add Post', new_post_path %>
-<% end %>
+</div>

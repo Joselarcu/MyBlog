@@ -29,7 +29,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # use twitter bootstrap framework
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails-cdn', '~> 1.1.3'
 
 #authentication
 gem 'sorcery'
