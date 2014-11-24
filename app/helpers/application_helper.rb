@@ -1,6 +1,12 @@
 module ApplicationHelper
 
   def get_five_latest_posts
-    @posts = Post.all.sort.first(5)
+    @posts = Post.all.sort.reverse.first(5).reverse
   end
+
+  def get_index_nearest_end_word_320(str)
+    aux = str[320,str.length]
+    aux.index(/[,.;' ']/) + 320
+  end
+ 
 end

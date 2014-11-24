@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :get_post, only: [ :show, :edit, :update ]
   load_and_authorize_resource :only => [:new, :edit, :destroy,] 
+
   
   def index
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 6)
   end
 
   def show
