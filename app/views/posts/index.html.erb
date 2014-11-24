@@ -7,7 +7,7 @@
       <small><%= post.created_at %></small>
       <br>
       <p class="lead">
-       <%=post.content.first(320) + "..."%>
+       <%=post.content.first(get_index_nearest_end_word_320(post.content)) + "..."%>
       </p>
      
       <h3><%= link_to "Read more", post_path(post) %></h3>
@@ -25,3 +25,5 @@
     <%= link_to 'Add Post', new_post_path %>
   <% end %>
 </div>
+
+  <%= will_paginate @post, renderer: BootstrapPagination::Rails %>

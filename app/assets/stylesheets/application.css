@@ -14,3 +14,26 @@
  */
 
 
+#blog_title{
+  font-size: 50px;
+  color: blue;
+}
+
+#blog_subtitle1{
+  margin-left: 2%;
+}
+
+#blog_subtitle2, li{
+  margin-top: 1.5%;
+
+}
+
+.img-circle{
+  max-height:50%;
+  max-width:50%;
+  margin-left: 50%;
+}
+
+#latest_posts{
+  margin-top: 2%;
+}
