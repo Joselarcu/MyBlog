@@ -16,3 +16,22 @@
 //= require turbolinks
 //= require_tree .
 
+
+
+$(document).ready(function(){
+  $("#blog_title").hover(function(){
+    $("#blog_title").animate({
+      opacity: 0.25
+    });
+  },function(){
+    $("#blog_title").animate({
+      opacity: 1
+    });
+  });
+});
+
+$(document).ready(function(){
+  $(".img-circle").hover(function(){
+    $('.img-circle').toggleClass('rotate')
+  });
+});

@@ -20,7 +20,7 @@
 }
 
 #blog_subtitle1{
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 #blog_subtitle2, li{
@@ -34,6 +34,28 @@
   margin-left: 50%;
 }
 
+
 #latest_posts{
   margin-top: 2%;
+}
+
+#home_icon{
+  font-size: 180%;
+}
+
+.footer{
+  background-color: #FAFAFA;
+  max-width: 100%;
+}
+
+.rotate{
+  -ms-transform: rotate(10deg); /* IE 9 */
+  -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+  transform: rotate(10deg);
+  
+  opacity: 0.8;
+}
+
+.footer{
+  margin-top: 0%;
 }

@@ -1,13 +1,17 @@
+<div class="form-group">
+  <%= f.label :title, 'Title' %>
+  <%= f.text_field :title, :size => 80 %> 
+</div>
+<div class="form-group", id="language_form">
+  <%= f.label :language, 'Language' %>
+  <%= f.select(:language, [['Spanish','es'],['English','en'],['Portuguese','pt']])%>
+ </div>
+  <div class="form-group">
+    <%= f.label :category, 'Category' %>
+    <%= f.text_field :category %>
+  </div>
 
-
-<%= f.label :title, 'Title' %>
-<%= f.text_field :title %>
-
-<%= f.label :content, 'Content' %>
-<%= f.text_area :content, row: 100 %>
-
-<%= f.label :language, 'Language' %>
-<%= f.select(:language, [['Spanish','es'],['English','en'],['Portuguese','pt']])%>
-
-<%= f.label :category, 'Category' %>
-<%= f.text_field :category %>
+<div class="form-group">
+  <%= f.label :content, 'Content' %>
+  <%= f.text_area :content, :cols => "100", :rows => "20" %>
+</div>

@@ -1,19 +1,67 @@
-<div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-4 control-label">
+        <%= f.label :username  %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.text_field :username, :size => 30 %>
+      </div>
+    </div>
   </div>
 
-<div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-4 control-label">
+        <%= f.label :email  %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.text_field :email, :size => 30 %>
+      </div>
+    </div>
   </div>
 
-<div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-4 control-label">
+        <%= f.label :name  %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.text_field :name, :size => 30 %>
+      </div>
+    </div>
   </div>
- 
- <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-4 control-label">
+        <%= f.label :surname  %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.text_field :surname, :size => 30 %>
+      </div>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-4">
+        <%= f.label :password %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.password_field :password, :size => 30 %>
+      </div>
+    </div>
+  </div>
+   
+  <div class="row">
+    <div class="form-group">
+      <div class="col-lg-4">
+        <%= f.label :password_confirmation %>
+      </div>
+      <div class="col-lg-8">
+        <%= f.password_field :password_confirmation, :size => 30 %>
+      </div>
+    </div>
+  </div>
+

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
 
   before_save { email.downcase! }
   before_save { username.downcase! }
+  before_save { name.capitalize! }
+  before_save { surname.capitalize! }
+
 
   validates_confirmation_of :password
   #validates_presence_of :password, :on => :create
@@ -23,5 +26,8 @@ class User < ActiveRecord::Base
                        uniqueness: { case_sensitive: false }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :surname, presence: true
 
 end

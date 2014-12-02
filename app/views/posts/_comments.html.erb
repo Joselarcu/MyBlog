@@ -1,0 +1,20 @@
+<% comments.each do |comment| %>
+
+ <% if comment.errors.any? %>
+    <h2>Errores:</h2>      
+      <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+  <h3><%= find_user(comment.user_id).name %></h3>
+  <h6><%= comment.created_at %></h6>
+  <h4><%= comment.content.html_safe %></h4>
+  <% if current_user and is_comment_owner? comment, current_user %>
+    <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
+    <%= link_to 'delete', [@post,comment], method: :delete, data: { confirm: 'are you sure?' } %>
+  <% end %>
+  <hr>
+<% end %>

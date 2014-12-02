@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def not_authenticated
-    redirect_to :root_path, :alert => "You don't have access"
+    redirect_back_or_to :root_path, :warning => "You don't have access"
   end
 
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, :alert => exception.message
+    redirect_back_or_to root_path, :warning => exception.message
  end
 end
