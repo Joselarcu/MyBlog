@@ -1,12 +1,15 @@
 class CommentsController < ApplicationController
   before_action :get_comment, only:[:show, :edit, :update ]
-  before_action :is_comment_owner?, only: [ :edit, :destroy ]
-  before_action :get_post, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :is_comment_owner?, only: [ :edit ]
+  before_action :get_post, only: [ :new, :create, :edit, :update, :destroy, :index ]
+  
   def show
+    @user = current_user
+
   end
 
   def index
-    @comments = Comment.all
+    @comments = Comment.where(post_id:  @post.id)
   end
 
   def new

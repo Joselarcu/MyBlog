@@ -1,12 +1,33 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
-<small><%= @post.created_at %></small>
+<div class="row">
+  <h1><%= @post.title %></h1>
+  <small><%= @post.created_at %></small>
+  <% if can? :delete, @post %>
+      <%= link_to 'Delete',  @post, method: :delete, data: { confirm: 'are you sure?' }, remote: true %>
+      <%= link_to 'Edit', edit_post_path(@post) %>
+      <% end %>
+</div>
+<br>
+<div class="row">
+<h3><%= @post.content.html_safe %></h3>
+</div>
+
 <br>
 
-
-Comments:
-<br>
-<% @post.comments.each do |comment| %>
-  <%= comment.content %>
-  <br>
+<div class="row">
+  <h3><strong>Comments:</strong></h3>
+  <hr>
+    <%= render 'comments' ,comments:@post.comments  %>
+    <br>
+</div>
+<div class="row">
+<h3> Leave your comment: </h3>
+<% unless current_user %>
+  First
+  <%= link_to "Sign up", signup_path %> or
+  <%= link_to "log in", "#", data: {toggle: "modal", target: "#modalLogin"} %>
+<% else %>
+  <%= render 'new_comment' %>
 <% end %>
+</div>
+
+<%= render 'sessions/new_login_modal' %>

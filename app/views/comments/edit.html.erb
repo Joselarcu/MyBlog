@@ -1,11 +1,11 @@
 <h1>Edit Comment</h1>
 
 
-<%=form_for @comment do |f| %>
+<%=form_for [@post, @comment] do |f| %>
   
   <div class="form-group">
     <%= f.label :content, 'Content' %>
-    <%= f.text_area :content, row: 100 %>
+    <%= f.text_area :content, :cols => "84", :rows => "10" %>
   </div> 
   
   <%= f.submit "Edit", class: "btn btn-large btn-primary" %>

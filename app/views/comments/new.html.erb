@@ -2,18 +2,23 @@
 
 <%= form_for [ @post, @comment ] do |f|%>
   <% if @comment.errors.any? %>
-    <h2>Errores:</h2>      
-      <ul>
-        <% @comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+            
+         <div class="alert alert-danger fade in">
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h2>Errors:</h2> 
+            <% @comment.errors.full_messages.each do |message| %>   
+               <%= message %>
+               <br>   
+            <% end %> 
+          </div>
         <% end %>
-      </ul>
-  <% end %>
 
 
   <div class="form-group">
-    <%= f.label :content, 'Content' %>
-    <%= f.text_area :content, row: 100 %>
+    
+    <%= f.text_area :content, :cols => "84", :rows => "10" %>
   </div> 
 
   <%= f.submit "Create", class: "btn btn-large btn-primary" %>

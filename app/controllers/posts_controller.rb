@@ -4,10 +4,11 @@ class PostsController < ApplicationController
 
   
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 6)
+    @posts = Post.paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
+    session[:return_to_url] = post_path(@post)
   end
 
   def new
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, :success => "Post created successfully"
+      redirect_back_or_to posts_path, :success => "Post created successfully"
     else
       render 'new'
     end
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      redirect_to post_path(params[:id]), :success => "Post updated successfully"
+      redirect_back_or_to post_path(params[:id]), :success => "Post updated successfully"
     else
       render 'edit'
     end
