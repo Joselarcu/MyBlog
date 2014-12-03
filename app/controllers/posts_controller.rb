@@ -4,7 +4,13 @@ class PostsController < ApplicationController
 
   
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    if params[:category]
+      #@posts = Post.find :all,:conditions => ['category IN (?)', params[:category]]
+      @posts = Post.where(:category => params[:category]).paginate(:page => params[:page], :per_page => 5)
+      #redirect_back_or_to post_path(19), :success => "#{params[:category]}"
+    else
+      @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   def show

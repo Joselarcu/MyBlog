@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  *= require jquery-ui
+ *= require select2
+ *= require select2-bootstrap
  */
 
 
@@ -58,4 +60,8 @@
 
 .footer{
   margin-top: 0%;
+}
+
+#main-content{
+  margin-left: 2%;
 }

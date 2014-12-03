@@ -1,8 +1,16 @@
 <br>
-  <% if can? :add, @post %>
+ 
+   Seach by:
+      <div class="form-group">
+      <%= label :category, 'category' %>
+        <%= select_tag 'e1', options_for_select(get_existing_categories),include_blank: true %>
+      
+        <%= link_to 'Search', posts_path(:category => 'test') %>
+    </div>
+
+     <% if can? :add, @post %>
     <%= link_to 'Add Post', new_post_path %>
   <% end %>
-  
   <% @posts.each do |post| %>
   
     <div id="post_<%=post.id%>">

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
+//= require select2
 //= require_tree .
 
 
@@ -35,3 +36,11 @@ $(document).ready(function(){
     $('.img-circle').toggleClass('rotate')
   });
 });
+
+
+//$(document).ready(function(){
+  //$('#e1').select2({
+    //placeholder: 'Select a category',
+    //allowClear: true
+  //});
+//});

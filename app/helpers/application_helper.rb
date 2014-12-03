@@ -8,5 +8,9 @@ module ApplicationHelper
     aux = str[320,str.length]
     aux.index(/[,.;' ']/) + 320
   end
+
+  def get_existing_categories
+    Post.select(:category).map(&:category).uniq
+  end
  
 end
