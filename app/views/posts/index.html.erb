@@ -1,36 +1,36 @@
 <br>
  
-   Seach by:
-      <div class="form-group">
-      <%= label :category, 'category' %>
-        <%= select_tag 'e1', options_for_select(get_existing_categories),include_blank: true %>
-      
-        <%= link_to 'Search', posts_path(:category => 'test') %>
-    </div>
+<h4>Seach by:</h4>
 
-     <% if can? :add, @post %>
-    <%= link_to 'Add Post', new_post_path %>
-  <% end %>
-  <% @posts.each do |post| %>
+      
+<%= form_tag(posts_path, :method => 'get', :multipar => true) do %>
+  <%= label :category, 'category' %>
+  <%= select_tag :category, options_for_select(get_existing_categories),include_blank: true %>
+      
+  <%= submit_tag 'Search',class: 'form_submit' %>
+<% end %>
   
-    <div id="post_<%=post.id%>">
-      <h1><%= link_to post.title, post_path(post) %></h1>
-      <small><%= post.created_at %></small>
-      <br>
-      <p class="lead">
-       <%= get_content_without_html(
-          post.content.first(
-            get_index_nearest_end_word_320(post.content))) + "..."%>
-      </p>
+
+<% if can? :add, @post %>
+    <%= link_to 'Add Post', new_post_path %>
+<% end %>
+<% @posts.each do |post| %>
+  
+  <div id="post_<%=post.id%>">
+    <h1><%= link_to post.title, post_path(post) %></h1>
+    <small><%= post.created_at %></small>
+    <br>
+    <p class="lead">
+      <%= get_content_without_html(post.content.first(get_index_nearest_end_word_320(post.content))) + "..."%>
+    </p>
      
-      <h3><%= link_to "Read more", post_path(post) %></h3>
-      <% if can? :delete, @post %>
+    <h3><%= link_to "Read more", post_path(post) %></h3>
+    <% if can? :delete, @post %>
       <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'are you sure?' } %>
       <%= link_to 'Edit', edit_post_path(post) %>
-      <% end %>
-      <br>
-    </div>
-
+    <% end %>
+    <br>
+  </div>
 <% end %>
 
 

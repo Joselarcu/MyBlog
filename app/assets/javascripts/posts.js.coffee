@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready ->
-  $("#e1").select2
+  $("#category").select2
     placeholder: "Select a category"
     allowClear: true
 

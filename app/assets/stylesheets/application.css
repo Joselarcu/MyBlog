@@ -18,7 +18,7 @@
 
 #blog_title{
   font-size: 50px;
-  color: blue;
+  color: "#439BD6";
 }
 
 #blog_subtitle1{
@@ -63,5 +63,5 @@
 }
 
 #main-content{
-  margin-left: 2%;
+  margin-left: 1%;
 }
