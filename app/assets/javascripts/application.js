@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
+//= require select2
 //= require_tree .
 
 
@@ -56,6 +57,7 @@ $(document).ready(function(){
   });
 });
 
+
 $(document).ready(function () {
   var page = document.location.href.split('/').slice(-1)[0];
   if(page == 'contact'){
@@ -66,3 +68,12 @@ $(document).ready(function () {
   else{
   }
 });
+
+
+//$(document).ready(function(){
+  //$('#e1').select2({
+    //placeholder: 'Select a category',
+    //allowClear: true
+  //});
+//});
+

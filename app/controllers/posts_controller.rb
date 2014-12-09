@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
   before_action :get_post, only: [ :show, :edit, :update ]
   load_and_authorize_resource :only => [:new, :edit, :destroy,] 
+  #before_action :get_category, only: [ :index ]
 
   
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    if params[:category] and params[:category]!= ''
+      @posts = Post.where(:category => params[:category]).paginate(:page => params[:page], :per_page => 5)
+    else
+      @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    end
   end
 
   def show

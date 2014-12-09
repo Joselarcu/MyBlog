@@ -48,7 +48,7 @@
               <h3>Software Engineer</h3>
             </div>
         
-            <div class="col-md-5" id="blog_subtitle2">
+            <div class="col-md-6" id="blog_subtitle2">
               <ul class="list-inline">
                 <li id="option1">
                   <h4><%= link_to 'GitHub',"http://github.com/Joselarcu" %></h4>
@@ -70,16 +70,15 @@
     </div>
     <div class="row">
       <div class="col-md-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-6", id="main-content">
         <%= yield %>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-2 text-left">
-        
       </div>
     </div>
+
       <%# footer %>
-      
       <div class="row">
         <footer class="text_center">
           <%= render '/layouts/footer' %>

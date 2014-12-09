@@ -11,6 +11,8 @@
  *= require_self
  *= require_tree .
  *= require jquery-ui
+ *= require select2
+ *= require select2-bootstrap
  */
 
 
@@ -25,6 +27,7 @@
 
 #blog_title:hover{
   opacity:0.25;
+  color: "#439BD6";
 }
 
 #blog_subtitle1{
@@ -79,10 +82,14 @@
   margin-top: 0%;
 }
 
+
 #main_div{
   margin-left: 1%;
 }
 
 .active{
   text-decoration: underline;
+
+#main-content{
+  margin-left: 1%;
 }
