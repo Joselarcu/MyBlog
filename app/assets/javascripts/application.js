@@ -18,20 +18,51 @@
 
 
 
+//$(document).ready(function(){
+  //$("#blog_title").hover(function(){
+    //$("#blog_title").animate({
+      //opacity: 0.25
+    //});
+  //},function(){
+    //$("#blog_title").animate({
+      //opacity: 1
+    //});
+  //});
+//});
+
+
+//function to rotate the image
+//$(document).ready(function(){
+//  $(".img-circle").hover(function(){
+//    $('.img-circle').toggleClass('rotate')
+//  });
+//});
+
 $(document).ready(function(){
-  $("#blog_title").hover(function(){
-    $("#blog_title").animate({
-      opacity: 0.25
-    });
-  },function(){
-    $("#blog_title").animate({
-      opacity: 1
-    });
+  $('#option2').click(function(){
+    $(this).addClass('active');
+    $('#option3').removeClass('active');
+    $('#option4').removeClass('active');
+  });
+  $('#option3').click(function(){
+    $(this).addClass('active');
+    $('#option2').removeClass('active');
+    $('#option4').removeClass('active');
+  });
+  $('#option4').click(function(){
+    $(this).addClass('active');
+    $('#option2').removeClass('active');
+    $('#option3').removeClass('active');
   });
 });
 
-$(document).ready(function(){
-  $(".img-circle").hover(function(){
-    $('.img-circle').toggleClass('rotate')
-  });
+$(document).ready(function () {
+  var page = document.location.href.split('/').slice(-1)[0];
+  if(page == 'contact'){
+    $('#option2').addClass('active');
+  }else if(page == 'projects'){
+    $('#option3').addClass('active')
+  }
+  else{
+  }
 });

@@ -17,6 +17,14 @@
 #blog_title{
   font-size: 50px;
   color: blue;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#blog_title:hover{
+  opacity:0.25;
 }
 
 #blog_subtitle1{
@@ -32,6 +40,17 @@
   max-height:50%;
   max-width:50%;
   margin-left: 50%;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.img-circle:hover{
+  -ms-transform: rotate(9deg); /* IE 9 */
+    -webkit-transform: rotate(9deg); /* Chrome, Safari, Opera */
+    transform: rotate(9deg);
 }
 
 
@@ -58,4 +77,12 @@
 
 .footer{
   margin-top: 0%;
+}
+
+#main_div{
+  margin-left: 1%;
+}
+
+.active{
+  text-decoration: underline;
 }
