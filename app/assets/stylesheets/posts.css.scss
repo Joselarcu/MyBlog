@@ -5,3 +5,15 @@
 #language_form{
   margin-top: 2%;
 }
+
+.pagination>.active>span{
+  background-color: DarkCyan;
+}
+
+.pagination>li>span:focus{
+  color: DarkCyan;
+}
+
+.pagination>li>a{
+  color: DarkCyan;
+}
