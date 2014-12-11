@@ -15,10 +15,9 @@
  *= require select2-bootstrap
  */
 
-
 #blog_title{
   font-size: 50px;
-  color: blue;
+  color: DarkCyan;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -27,7 +26,7 @@
 
 #blog_title:hover{
   opacity:0.25;
-  color: "#439BD6";
+  
 }
 
 #blog_subtitle1{
@@ -89,7 +88,24 @@
 
 .active{
   text-decoration: underline;
+  font-weight: bold;
+}
 
 #main-content{
   margin-left: 1%;
 }
+
+a{
+  color: DarkCyan ;
+}
+
+
+.btn-primary{
+  background-color: DarkCyan;
+}
+
+.footer a{
+  color: black;
+}
+
+

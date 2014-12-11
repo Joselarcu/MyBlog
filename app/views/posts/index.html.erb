@@ -2,12 +2,11 @@
  
 <h4>Seach by:</h4>
 
-      
 <%= form_tag(posts_path, :method => 'get', :multipar => true) do %>
   <%= label :category, 'category' %>
   <%= select_tag :category, options_for_select(get_existing_categories),include_blank: true %>
       
-  <%= submit_tag 'Search',class: 'form_submit' %>
+  <%= submit_tag 'Search',class: "btn btn-large btn-primary" %>
 <% end %>
   
 
