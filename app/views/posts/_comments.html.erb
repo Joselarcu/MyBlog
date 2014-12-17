@@ -8,9 +8,21 @@
         <% end %>
       </ul>
   <% end %>
+  <% user = find_user(comment.user_id) %>
+  <div class='row'>
+    <div class="col-md-1">
+      <div id="user_picture">
+        <%= image_tag avatar_url(user,60), class:"img-circle" %>
+      </div>
+    </div>
 
-  <h3><%= find_user(comment.user_id).name %></h3>
-  <h6><%= comment.created_at %></h6>
+    <div class="col-md-4", id="user_info">
+      <h3><%= user.name %></h3>
+      <h6><%= comment.created_at %></h6>
+    </div>
+  </div>
+  
+  
   <h4><%= comment.content.html_safe %></h4>
   <% if current_user and is_comment_owner? comment, current_user %>
     <%= link_to 'edit', edit_post_comment_path(@post, comment) %>

@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 1.2'
 gem 'twitter-bootstrap-rails-cdn', '~> 1.1.3'
 gem 'bootstrap-material-design'
 
+#user gravatar
+gem 'gravatar_image_tag'
+
 #authentication
 gem 'sorcery'
 gem 'bcrypt-ruby', :require => "bcrypt"
