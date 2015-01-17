@@ -26,4 +26,4 @@ This README contains the instructions necessary to get the application up and ru
   7.1 rails c
   7.2 User.find(0).add_role(:admin)
 
-
+Now your blog is ready to use and create new posts
