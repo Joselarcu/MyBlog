@@ -20,3 +20,10 @@ This README contains the instructions necessary to get the application up and ru
 
 5. see the result on http://localhost:3000/
 
+6. Create a new user clicking on sing up
+
+7. If you want to give admin rights to this user: 
+  7.1 rails c
+  7.2 User.find(0).add_role(:admin)
+
+
