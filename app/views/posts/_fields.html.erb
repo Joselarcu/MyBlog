@@ -7,11 +7,14 @@
   <%= f.select(:language, [['Spanish','es'],['English','en'],['Portuguese','pt']])%>
  </div>
   <div class="form-group">
-    <%= f.label :category, 'test' %>
+    <%= f.label :category, 'Category' %>
     <%= f.text_field :category %>
   </div>
 
+</div>
 <div class="form-group">
   <%= f.label :content, 'Content' %>
   <%= f.text_area :content, :cols => "100", :rows => "20" %>
 </div>
+
+

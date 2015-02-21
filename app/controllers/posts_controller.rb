@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  before_action :get_post, only: [ :show, :edit, :update ]
-  load_and_authorize_resource :only => [:new, :edit, :destroy,] 
-  #before_action :get_category, only: [ :index ]
+  before_action :set_post, only: [ :show, :edit, :update]
+  load_and_authorize_resource :only => [:new, :edit, :destroy] 
+  
 
   
   def index
-    if params[:category] and params[:category]!= ''
+    if params[:category] and not params[:category].empty?
       @posts = Post.where(:category => params[:category]).paginate(:page => params[:page], :per_page => 5)
     else
       @posts = Post.paginate(:page => params[:page], :per_page => 5)
@@ -21,9 +21,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(:title => post_params[:title],:language => post_params[:language],
+                     :category => post_params[:category], :content => post_params[:content])
+    tags = post_params[:tag][:tag_content]
     if @post.save
-      redirect_back_or_to posts_path, :success => "Post created successfully"
+      unless tags.nil?
+        create_tags(@post, tags)
+      end
+      redirect_to posts_path
+      flash[:success] = "Post created successfully"
     else
       render 'new'
     end
@@ -41,8 +47,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id]).destroy
-    
+    @post = Post.find(params[:id])
+    @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_path }
       format.js
@@ -52,10 +58,17 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:content,:language, :category)
+    params.require(:post).permit(:title,:content,:language, :category, :tag => [:tag_content])
   end
 
-  def get_post
+  def set_post
     @post = Post.find(params[:id])
+  end
+
+  def create_tags post, tags
+    tags.split(",").each do |tag_content|
+      tag = Tag.find_or_create_by(:tag_content => tag_content.capitalize)
+      post.tags << tag unless post.tags.include? tag
+    end
   end
 end

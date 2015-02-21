@@ -1,2 +1,9 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<h1>all tags</h1>
+<% @tags.each do |tag|%>
+	<%= link_to tag.tag_content, post_tags_path(tag) %> 
+	  <%= link_to 'Edit',  edit_post_tag_path(@post,tag) %>
+	  <%= link_to 'Delete',[@post,tag], method: :delete, data: { confirm: 'are you sure?' } %>
+	  <br>
+	  
+<% end %>
+<%= link_to 'Add tag', new_post_tag_path(@post) %>

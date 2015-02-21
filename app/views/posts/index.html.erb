@@ -20,12 +20,13 @@
     <small><%= post.created_at %></small>
     <br>
     <p class="lead">
-      <%= get_content_without_html(post.content.first(get_index_nearest_end_word_320(post.content))) + "..."%>
+
+      <%= get_content_without_html(get_content_resume(post.content))%>
     </p>
      
     <h3><%= link_to "Read more", post_path(post) %></h3>
-    <% if can? :delete, @post %>
-      <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'are you sure?' } %>
+    <% if can? :delete, post %>
+      <%= link_to 'Delete', post, method: :delete, data: { confirm: 'are you sure?' }, remote: true %>
       <%= link_to 'Edit', edit_post_path(post) %>
     <% end %>
     <br>

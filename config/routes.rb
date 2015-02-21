@@ -1,19 +1,23 @@
 Myblog::Application.routes.draw do
-  get "tags/new"
-  get "tags/index"
+  
+
+  match '/admin', to: 'administrator#show', via: 'get'
+  match 'admin/users', to: 'administrator#index_users', via: 'get'
+  match 'admin/comments', to: 'administrator#index_comments', via: 'get'
+  match 'admin/tags', to: 'administrator#index_tags', via: 'get'
+
+  
   get "logout" => "sessions#destroy", :as => "logout"
   get "login"  => "sessions#new",     :as => "login"
   get "signup" => "users#new",        :as => "signup"
-  #get "posts/index"
-  #get 'static_pages/contact'
-  #get 'static_pages/about'
-  #get 'static_pages/projects'
+  
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
   match 'projects', to: 'static_pages#projects', via: 'get'
 
 resources :posts do
   resources :comments
+  resources :tags
 end
 resources :users
 resources :sessions

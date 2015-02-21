@@ -1,0 +1,13 @@
+<h1>Admin page</h1>
+
+Blog Information: <br>
+Number of users: <%= User.all.length %><br>
+Number of posts: <%= Post.all.length %><br>
+Number of comments: <%= Comment.all.length %><br>
+<br>
+Actions: <br>
+<%= link_to 'View users', admin_users_path %><br>
+<%= link_to 'View comments', "#" %><br>
+<%= link_to 'View tags', admin_tags_path %><br>
+<%= link_to 'View posts information', "#" %><br>
+

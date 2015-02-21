@@ -1,0 +1,7 @@
+<h1>User Information</h1>
+
+<h4>Total of users: <%= total_users %></h4> 
+<h4>Users:</h4>
+<% @users.each do |user| %>
+	<%= link_to user.name, user_path(user) %> coments:<%= total_comments user %> <br>
+<% end %>
