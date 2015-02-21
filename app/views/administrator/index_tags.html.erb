@@ -1,0 +1,16 @@
+<h1>Tags</h1>
+
+<ul class="list-group">
+<li class="list-group-item">
+<span class="badge"><strong>times used</strong></span>
+<strong>TAG</strong>
+</li>
+<% @tags.each do |tag| %>
+  <li class="list-group-item">
+    <span class="badge"><%= number_of_times_use tag%></span>
+    <%= tag.tag_content %>
+    <%= link_to 'Edit', edit_post_tag_path(get_post_tag(tag), tag) %>
+    <%= link_to 'Delete',[@post,tag], method: :delete, data: { confirm: 'are you sure?' } %>
+  </li>
+  <% end %>
+</ul>

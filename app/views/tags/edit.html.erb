@@ -1,5 +1,6 @@
-<h1>New tag</h1>
-	 <%= form_for [@post, @tag] do |f| %>
+<h1>Edit tag</h1>
+
+<%= form_for [@post, @tag] do |f| %>
 
 	 <% if @tag.errors.any? %>
             
@@ -19,5 +20,5 @@
 		  <%= f.label :tag_content, 'Content' %>
 		  <%= f.text_field :tag_content, :size => 30 %> 
 		</div>
-		<%= f.submit "Create", class: "btn btn-large btn-primary" %>
+		<%= f.submit "Edit", class: "btn btn-large btn-primary" %>
 	<% end %>

@@ -6,9 +6,11 @@ class Ability
     #
     user ||= User.new # guest user (not logged in)
         if user.has_role? :admin
-            can :manage, :all
-      else
-        can :read, :all
+          can :manage, :all
+        else
+          can :read, :all
+          cannot :show, AdministratorController
+
         #can :read, Post, Comment
        end
     #

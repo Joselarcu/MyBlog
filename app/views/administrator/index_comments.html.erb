@@ -1,0 +1,8 @@
+<h1>Comments</h1>
+
+<% @comments.each do |comment| %>
+	<% post = get_post_comment(comment) %>
+	<%= get_comment_user comment %> said: <%= comment.content %> in <b><%= post.title %></b> post
+	<%= link_to 'Edit', edit_post_comment_path(post,comment) %>
+	<%= link_to 'Delete',[post, comment], method: :delete, data: { confirm: 'are you sure?' }, remote: true %><br>
+<% end %>

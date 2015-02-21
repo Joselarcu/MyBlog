@@ -4,9 +4,14 @@ module ApplicationHelper
     @posts = Post.all.sort.reverse.first(5)
   end
 
-  def get_index_nearest_end_word_320(str)
-    aux = str[320,str.length]
-    aux.index(/[,.;' ']/) + 320
+  def get_content_resume(str)
+    if str.length > 320
+      aux = str[320,str.length]
+      index = aux.index(/[,.;' ']/) + 320
+      str[0, index]  + "..."
+    else
+      str
+    end
   end
 
   def get_existing_categories

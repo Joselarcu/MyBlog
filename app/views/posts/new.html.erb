@@ -9,23 +9,29 @@
 
       <% if @post.errors.any? %>
             
-         <div class="alert alert-danger fade in">
-            <button type="button" class="close" data-dismiss="alert">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h2>Errors:</h2> 
-            <% @post.errors.full_messages.each do |message| %>   
-               <%= message %>
-               <br>   
-            <% end %> 
-          </div>
-        <% end %>
+        <div class="alert alert-danger fade in">
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h2>Errors:</h2> 
+          <% @post.errors.full_messages.each do |message| %>   
+            <%= message %>
+            <br>   
+          <% end %> 
+        </div>
+      <% end %>
 
       <div class="form-group">
         <%= render 'fields', f:f %>
       </div>
-      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
-      
+      <%= f.fields_for :tag do | tag_form | %>
+
+        <div class="form-group">
+          <%= tag_form.label :tag_content, 'Tags' %>
+          <%= tag_form.text_field :tag_content %>
+        </div>
+        <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+      <% end %>
     <% end %>
   </div>
 </div>
