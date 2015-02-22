@@ -3,7 +3,7 @@
 <% @comments.each do |comment| %>
 
   <%=link_to comment.content, post_comment_path(@post, comment) %> 
-  <% if logged_in? && is_comment_owner?(comment, current_user) %>
+  <% if logged_in? && comment.author?(current_user) %>
   <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
   <%= link_to 'Delete',[@post, comment], method: :delete, data: { confirm: 'are you sure?' } %>
   <% end %>

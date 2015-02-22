@@ -8,7 +8,7 @@
         <% end %>
       </ul>
   <% end %>
-  <% user = find_user(comment.user_id) %>
+  <% user = comment.author %>
   <div class='row'>
     <div class="col-md-1">
       <div id="user_picture">
@@ -24,7 +24,7 @@
   
   
   <h4><%= comment.content.html_safe %></h4>
-  <% if current_user and is_comment_owner? comment, current_user %>
+  <% if current_user and comment.author?(current_user) %>
     <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
     <%= link_to 'delete', [@post,comment], method: :delete, data: { confirm: 'are you sure?' } %>
   <% end %>

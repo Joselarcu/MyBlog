@@ -20,5 +20,4 @@ class AdministratorController < ApplicationController
  	def index_tags
  		@tags = Tag.all
  	end
-
 end

@@ -5,4 +5,12 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
 
   default_scope -> { order('id') }
+
+  def author 
+    User.find(self.user_id)
+  end
+
+  def author? current_user
+    self.user_id == current_user.id
+  end
 end

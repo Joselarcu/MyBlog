@@ -1,7 +1,7 @@
 <%= form_for [ @post, @post.comments.build ] do |f|%>
 
-<div class="form-group">
-  <%= f.text_area :content, :cols => "84", :rows => "10" %>
+  <div class="form-group">
+    <%= f.text_area :content, :cols => "84", :rows => "10" %>
   </div> 
 
   <%= f.submit "Post comment", class: "btn btn-large btn-primary" %>
