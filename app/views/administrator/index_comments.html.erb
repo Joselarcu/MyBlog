@@ -1,8 +1,37 @@
 <h1>Comments</h1>
 
-<% @comments.each do |comment| %>
-	<% post = get_post_comment(comment) %>
-	<%= get_comment_user comment %> said: <%= comment.content %> in <b><%= post.title %></b> post
-	<%= link_to 'Edit', edit_post_comment_path(post,comment) %>
-	<%= link_to 'Delete',[post, comment], method: :delete, data: { confirm: 'are you sure?' }, remote: true %><br>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Comment</th>
+        <th>Post</th>
+        <th>Action</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+  <tbody>
+  <% @comments.each do |comment| %>
+  <tr>
+    <% post = comment.post %>
+    <th>
+      <%= comment.author %>
+    </th>
+    <th>
+      <%= comment.content %> 
+    </th>
+    <th>
+     <b><%= post.title %></b> 
+    </th>
+    <th>
+      <%= link_to 'Edit', edit_post_comment_path(post,comment) %>
+      <%= link_to 'Delete',[post, comment], method: :delete, data: { confirm: 'are you sure?' } %>
+  </th>
+  </tr>
 <% end %>
+  </tbody>
+  </table>
+</div>
+
+

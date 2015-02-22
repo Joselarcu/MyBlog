@@ -5,6 +5,14 @@ class Tag < ActiveRecord::Base
 	before_save { tag_content.capitalize! }
 	validates :tag_content, :presence => true, :length => { :minimum => 3 }
 
-	
+	def times_used
+    self.posts.count
+  end
+
+  def first_post
+    unless self.posts.empty?
+      Post.find(self.posts.first)
+    end
+  end
 
 end

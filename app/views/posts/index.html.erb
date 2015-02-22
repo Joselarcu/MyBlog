@@ -4,7 +4,7 @@
 
 <%= form_tag(posts_path, :method => 'get', :multipar => true) do %>
   <%= label :category, 'category' %>
-  <%= select_tag :category, options_for_select(get_existing_categories),include_blank: true %>
+  <%= select_tag :category, options_for_select(categories),include_blank: true %>
       
   <%= submit_tag 'Search',class: "btn btn-large btn-primary" %>
 <% end %>
@@ -21,7 +21,7 @@
     <br>
     <p class="lead">
 
-      <%= get_content_without_html(get_content_resume(post.content))%>
+      <%= content_without_html(post.content_resume)%>
     </p>
      
     <h3><%= link_to "Read more", post_path(post) %></h3>

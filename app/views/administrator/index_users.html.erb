@@ -1,7 +1,27 @@
 <h1>User Information</h1>
 
-<h4>Total of users: <%= total_users %></h4> 
+<h4>Total of users: <%= User.count %></h4> 
 <h4>Users:</h4>
-<% @users.each do |user| %>
-	<%= link_to user.name, user_path(user) %> coments:<%= total_comments user %> <br>
-<% end %>
+
+<!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>total comments</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th>
+          <%= link_to user.name, user_path(user) %>
+        </th>
+        <th>
+          <%= user.comments.count %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
