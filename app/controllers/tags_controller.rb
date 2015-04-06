@@ -15,7 +15,7 @@ class TagsController < ApplicationController
     else
       @post.tags << @tag unless @post.tags.include? @tag
       redirect_to post_path(@post)
-      flash[:success] = "Tag #{@tag.tag_content} assigned successfully "
+      flash[:success] = t('tag.message.created_success')
     end
   end
 
@@ -27,7 +27,7 @@ class TagsController < ApplicationController
   def destroy
     @tag.posts.count == 1 ? @tag.destroy : @post.tags.delete(@tag)
   	 redirect_to post_tags_path(@post) 
-     flash[:success] = "Tag deleted succesfully"
+     flash[:success] = t('tag.message.deleted_success')
   end
 
   def edit
@@ -35,7 +35,7 @@ class TagsController < ApplicationController
   
   def update
     if @tag.update_attributes(tag_params)
-      redirect_back_or_to post_tags_path(), :success => "User updated successfully"
+      redirect_back_or_to post_tags_path(), :success => t('tag.message.updated_success')
     else
       render 'edit'
     end

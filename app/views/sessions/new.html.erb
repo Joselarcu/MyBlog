@@ -1,20 +1,21 @@
 <%= form_tag sessions_path do %>
 
+
   <div class="form-group">
-    <%= label_tag :username %>
-    <%= text_field_tag :username, params[:username] %>
+    <%= label_tag t('session.username')%>
+    <%= text_field_tag :username, params[:username], id:"username_field" %>
   </div>
 
   <div class="form-group">
-    <%= label_tag :password %>
+    <%= label_tag t('session.password') %>
     <%= password_field_tag :password %>
   </div>
 
   <div class="form-group">
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-    <%= label_tag :remember_me %>
+    <%= label_tag t('session.remember_me') %>
   </div>
   
-  <div class="actions"><%= submit_tag "Log in", class: "btn btn-large btn-primary" %></div>
+  <div class="actions"><%= submit_tag t('button.login'), class: "btn btn-large btn-primary" %></div>
 
 <% end %>

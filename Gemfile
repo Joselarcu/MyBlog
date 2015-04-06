@@ -50,6 +50,13 @@ gem 'will_paginate-bootstrap'
 #select2 to select posts by category
 gem "select2-rails"
 
+#internationalization
+gem 'rails-i18n', '~> 4.0.0'
+
+#routes translation
+#gem 'route_translator'
+#gem 'rails-translate-routes'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

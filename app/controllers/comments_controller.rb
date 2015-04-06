@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
-  before_action :get_comment, only:[:show, :edit, :update ]
+  before_action :set_comment, only:[:show, :edit, :update ]
   before_action :is_comment_owner?, only: [ :edit ]
-  before_action :get_post, only: [ :new, :create, :edit, :update, :destroy, :index ]
+  before_action :set_post, only: [ :new, :create, :edit, :update, :destroy, :index ]
   
   def show
     @user = current_user
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
     if @comment.save
-      redirect_to post_path(@post), :success => "comment created successfully"
+      redirect_to post_path(@post), :success => t('comment.message.created_success')
     else
       render 'new'
     end
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update_attributes(comment_params)
-      redirect_to post_path(@post), :success => "Comment updated successfully"
+      redirect_to post_path(@post), :success => t('comment.message.updated_success')
     else
       render 'edit'
     end
@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id]).destroy
-    redirect_to post_path(@post) , :info => "comment deleted successfully"
+    redirect_to post_path(@post) , :info => t('comment.message.deleted_success')
   end
 
   private
@@ -50,17 +50,17 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content,:user_id => current_user)
   end
 
-  def get_comment
+  def set_comment
     @comment = Comment.find(params[:id])
   end
 
   def is_comment_owner?
    if current_user != nil && !( @comment.user_id == current_user.id )
-      redirect_to post_path(@post) , :warning => "You are not authorized"
+      redirect_to post_path(@post) , :warning => t('comment.message.not_authorized')
    end
   end
 
-  def get_post
+  def set_post
     @post = Post.find(params[:post_id])
   end
 

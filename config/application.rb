@@ -8,6 +8,12 @@ Bundler.require(:default, Rails.env)
 
 module Myblog
   class Application < Rails::Application
+    #I18n.available_locales = [:en, :es, :pt]
+    #I18n.default_locale = :en
+    config.i18n.available_locales = [:en, :es, :pt]
+    config.i18n.default_locale = :en
+    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

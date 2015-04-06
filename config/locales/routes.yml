@@ -1,0 +1,20 @@
+en:
+  routes:
+    
+
+es:
+  routes:
+    admin: administrador
+    users: usuarios
+    comments: comentarios
+    tags: etiquetas
+    logout: cerrar-sesion
+    login: iniciar-sesion
+    signup: registrar
+    contact: contacto
+    about: sobre-mi
+    projects: proyectos
+    posts: posts
+    sessions: sesiones
+    edit: editar
+    update: actualizar

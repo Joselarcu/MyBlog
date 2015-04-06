@@ -1,6 +1,6 @@
-<h3>User <%= @user.username %></h3>
+<h3><%= t('user.name') %> <%= @user.username %></h3>
 
-<h3>Email: <%= @user.email %></h3>
+<h3>Email <%= @user.email %></h3>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
-<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'are you sure?' } %>
+<%= link_to t('button.edit'), edit_user_path(@user) %>
+<%= link_to t('button.delete'), @user, method: :delete, data: { confirm: 'are you sure?' } %>

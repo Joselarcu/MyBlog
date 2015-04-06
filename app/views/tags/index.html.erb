@@ -1,9 +1,10 @@
-<h1>all tags</h1>
+<h1><%= t('tag.all_tags') %></h1>
 <% @tags.each do |tag|%>
-	<%= link_to tag.tag_content, post_tags_path(tag) %> 
-	  <%= link_to 'Edit',  edit_post_tag_path(@post,tag) %>
-	  <%= link_to 'Delete',[@post,tag], method: :delete, data: { confirm: 'are you sure?' } %>
+	<%= link_to tag.tag_content, post_tags_path(tag) %>
+  <% if not current_user.nil? and current_user.has_role? :admin %> 
+	  <%= link_to t('button.edit'),  edit_post_tag_path(@post,tag) %>
+	  <%= link_to t('button.delete'),[@post,tag], method: :delete, data: { confirm: 'are you sure?' } %><br>
+    <%= link_to t('tag.add_tag'), new_post_tag_path(@post) %>
 	  <br>
-	  
+	<% end %>
 <% end %>
-<%= link_to 'Add tag', new_post_tag_path(@post) %>
