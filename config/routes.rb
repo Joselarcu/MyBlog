@@ -1,28 +1,40 @@
 Myblog::Application.routes.draw do
   
 
-  match '/admin', to: 'administrator#show', via: 'get'
-  match 'admin/users', to: 'administrator#index_users', via: 'get'
-  match 'admin/comments', to: 'administrator#index_comments', via: 'get'
-  match 'admin/tags', to: 'administrator#index_tags', via: 'get'
-
+  scope "(:locale)" do
   
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login"  => "sessions#new",     :as => "login"
-  get "signup" => "users#new",        :as => "signup"
-  
-  match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/about', to: 'static_pages#about', via: 'get'
-  match 'projects', to: 'static_pages#projects', via: 'get'
 
-resources :posts do
-  resources :comments
-  resources :tags
+    root  "posts#index"
+     #root 'static_pages#home'
+
+    match '/admin', to: 'administrator#show', via: 'get'
+    match 'admin/users', to: 'administrator#index_users', via: 'get'
+    match 'admin/comments', to: 'administrator#index_comments', via: 'get'
+    match 'admin/tags', to: 'administrator#index_tags', via: 'get'
+
+   
+    get "logout" => "sessions#destroy", :as => "logout"
+    get "login"  => "sessions#new",     :as => "login"
+    get "signup" => "users#new",        :as => "signup"
+   
+    match '/contact', to: 'static_pages#contact', via: 'get'
+    match '/about', to: 'static_pages#about', via: 'get'
+    match 'projects', to: 'static_pages#projects', via: 'get'
+ 
+
+   resources :users
+   resources :sessions
+
+  resources :posts do
+    resources :comments
+    resources :tags
+  end
 end
-resources :users
-resources :sessions
+ 
 
-root :to => "posts#index"
+  
+
+#end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -78,4 +90,5 @@ root :to => "posts#index"
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

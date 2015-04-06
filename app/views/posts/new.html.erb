@@ -3,7 +3,7 @@
 <div class = "row">
   <div class="span3 offset1">
 
-  <h1>New Post</h1>
+  <h1><%= t('post.new_post') %></h1>
   <hr>
     <%= form_for(@post) do |f| %>
 
@@ -13,7 +13,7 @@
           <button type="button" class="close" data-dismiss="alert">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h2>Errors:</h2> 
+          <h2><%= t('layout.errors') %></h2> 
           <% @post.errors.full_messages.each do |message| %>   
             <%= message %>
             <br>   
@@ -30,7 +30,7 @@
           <%= tag_form.label :tag_content, 'Tags' %>
           <%= tag_form.text_field :tag_content %>
         </div>
-        <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+        <%= f.submit t('button.create'), class: "btn btn-large btn-primary" %>
       <% end %>
     <% end %>
   </div>

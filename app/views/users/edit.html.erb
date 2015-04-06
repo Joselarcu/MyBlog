@@ -1,4 +1,4 @@
-<h1>Edit user <%= @user.username %></h1>
+<h1><%=t('user.edit_user') %> <%= @user.username %></h1>
 <br>
 <%= form_for @user do |f| %>
  <% if @user.errors.any? %>
@@ -13,6 +13,6 @@
   <% end %>
 
   <%= render 'fields', f:f %>
-  <%= f.submit "Edit", class: "btn btn-large btn-primary" %>
+  <%= f.submit t('button.edit'), class: "btn btn-large btn-primary" %>
 <% end %>
 

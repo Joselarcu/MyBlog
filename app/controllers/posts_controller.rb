@@ -29,7 +29,7 @@ class PostsController < ApplicationController
         create_tags(@post, tags)
       end
       redirect_to posts_path
-      flash[:success] = "Post created successfully"
+      flash[:success] = t('post.message.created_success')
     else
       render 'new'
     end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      redirect_back_or_to post_path(params[:id]), :success => "Post updated successfully"
+      redirect_back_or_to post_path(params[:id]), :success => t('post.message.updated_success')
     else
       render 'edit'
     end

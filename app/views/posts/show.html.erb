@@ -2,9 +2,9 @@
   <h1><%= @post.title %></h1>
   <small><%= @post.created_at %></small>
   <% if can? :delete, @post %>
-      <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'are you sure?' } %>
-      <%= link_to 'Edit', edit_post_path(@post) %>
-      <%= link_to 'Tags', post_tags_path(@post) %>
+      <%= link_to t('button.delete'), @post, method: :delete, data: { confirm: 'are you sure?' } %>
+      <%= link_to t('button.edit'), edit_post_path(@post) %>
+      <%= link_to t('button.tags'), post_tags_path(@post) %>
       <% end %>
 </div>
 <br>
@@ -14,18 +14,20 @@
 
 <br>
 
+<% if not @post.comments.empty? %>
+  <div class="row">
+    <h3><strong><%= t('post.comments') %></strong></h3>
+    <hr>
+      <%= render 'comments' ,comments: @post.comments  %>
+      <br>
+  </div>
+<% end %>
 <div class="row">
-  <h3><strong>Comments:</strong></h3>
-  <hr>
-    <%= render 'comments' ,comments: @post.comments  %>
-    <br>
-</div>
-<div class="row">
-<h3> Leave your comment: </h3>
+<h3><%= t('post.leave_your_comment') %></h3>
 <% unless current_user %>
-  First
-  <%= link_to "Sign up", signup_path %> or
-  <%= link_to "log in", "#", data: {toggle: "modal", target: "#modalLogin"} %>
+  <%= t('post.first') %>
+  <%= link_to t('post.sign_up'), signup_path %> <%= t('layout.or') %>
+  <%= link_to t('post.login'), "#", data: {toggle: "modal", target: "#modalLogin"} %>
 <% else %>
   <%= render 'new_comment' %>
 <% end %>

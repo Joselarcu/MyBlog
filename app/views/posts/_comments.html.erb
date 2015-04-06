@@ -25,8 +25,8 @@
   
   <h4><%= comment.content.html_safe %></h4>
   <% if current_user and comment.author?(current_user) %>
-    <%= link_to 'edit', edit_post_comment_path(@post, comment) %>
-    <%= link_to 'delete', [@post,comment], method: :delete, data: { confirm: 'are you sure?' } %>
+    <%= link_to t('button.edit'), edit_post_comment_path(@post, comment) %>
+    <%= link_to t('button.delete'), [@post,comment], method: :delete, data: { confirm: 'are you sure?' } %>
   <% end %>
   <hr>
 <% end %>
