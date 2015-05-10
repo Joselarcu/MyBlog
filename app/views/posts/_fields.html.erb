@@ -1,20 +1,28 @@
 <div class="form-group">
-  <%= f.label :title, t('post.title') %>
-  <%= f.text_field :title, :size => 80 %> 
+  <%= f.label :title, t('post.title'), class: 'control-label col-md-2'%>
+  <div class="col-md-8">
+    <%= f.text_field :title, :size => 80,  class: "form-control" %> 
+  </div>
 </div>
 <div class="form-group", id="language_form">
-  <%= f.label :language, t('post.language') %>
-  <%= f.select(:language, [['Spanish','es'],['English','en'],['Portuguese','pt']])%>
+  <%= f.label :language, t('post.language'), class: 'control-label col-md-2' %>
+  <div class="col-md-8">
+    <%= f.select(:language, [['Spanish','es'],['English','en'],['Portuguese','pt']])%>
+  </div>
  </div>
   <div class="form-group">
-    <%= f.label :category, t('post.category') %>
-    <%= f.text_field :category %>
+    <%= f.label :category, t('post.category'), class: 'control-label col-md-2' %>
+    <div class="col-md-8">
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
   </div>
 
 </div>
 <div class="form-group">
-  <%= f.label :content, t('post.content') %>
-  <%= f.text_area :content, :cols => "100", :rows => "20" %>
+  <%= f.label :content, t('post.content'), class: 'control-label col-md-2'%>
+  <div class="col-md-8">
+    <%= f.text_area :content, :cols => "100", :rows => "20", class: "form-control" %>
+  </div>
 </div>
 
 
