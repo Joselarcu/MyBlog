@@ -3,9 +3,9 @@
 <div class = "row">
   <div class="span3 offset1">
 
-  <h1><%= t('post.new_post') %></h1>
-  <hr>
-    <%= form_for(@post) do |f| %>
+    <h1><%= t('post.new_post') %></h1>
+    <hr>
+    <%= form_for @post, html: { class: "form-horizontal", role: "form" }  do |f| %>
 
       <% if @post.errors.any? %>
             
@@ -21,16 +21,23 @@
         </div>
       <% end %>
 
-      <div class="form-group">
-        <%= render 'fields', f:f %>
-      </div>
+      
+      <%= render 'fields', f:f %>
+      
       <%= f.fields_for :tag do | tag_form | %>
-
-        <div class="form-group">
-          <%= tag_form.label :tag_content, 'Tags' %>
-          <%= tag_form.text_field :tag_content %>
+        <div class='row'></div>
+        <div class="form-group", id='tags_form'>
+          <%= tag_form.label :tag_content, 'Tags',class: 'control-label col-md-2' %>
+          <div class="col-md-4">
+            <%= tag_form.text_field :tag_content, class: "form-control"%>
+          </div>
         </div>
-        <%= f.submit t('button.create'), class: "btn btn-large btn-primary" %>
+
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit t('button.create'), class: "btn btn-large btn-primary" %>
+          </div>
+        </div>
       <% end %>
     <% end %>
   </div>
