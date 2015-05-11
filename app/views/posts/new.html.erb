@@ -25,10 +25,11 @@
       <%= render 'fields', f:f %>
       
       <%= f.fields_for :tag do | tag_form | %>
+      
         <div class='row'></div>
         <div class="form-group", id='tags_form'>
           <%= tag_form.label :tag_content, 'Tags',class: 'control-label col-md-2' %>
-          <div class="col-md-4">
+          <div class="col-md-8">
             <%= tag_form.text_field :tag_content, class: "form-control"%>
           </div>
         </div>

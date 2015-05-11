@@ -1,5 +1,5 @@
 <h1><%= t('tag.new_tag') %></h1>
-	 <%= form_for [@post, @tag] do |f| %>
+	 <%= form_for [@post, @tag], html: { class: "form-horizontal", role: "form" } do |f| %>
 
 	 <% if @tag.errors.any? %>
             
@@ -16,8 +16,14 @@
         <% end %>
 
 		<div class="form-group">
-		  <%= f.label :tag_content, 'Content' %>
-		  <%= f.text_field :tag_content, :size => 30 %> 
+		  <%= f.label :tag_content, t('tag.content'), class: 'control-label col-md-2' %>
+      <div class="col-md-8">
+		    <%= f.text_field :tag_content, :size => 30, class: "form-control" %> 
+      </div>
 		</div>
-		<%= f.submit t('button.create'), class: "btn btn-large btn-primary" %>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+		    <%= f.submit t('button.create'), class: "btn btn-large btn-primary" %>
+      </div>
+    </div>
 	<% end %>
