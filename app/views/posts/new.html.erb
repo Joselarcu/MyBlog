@@ -25,6 +25,7 @@
       <%= render 'fields', f:f %>
       
       <%= f.fields_for :tag do | tag_form | %>
+      
         <div class='row'></div>
         <div class="form-group", id='tags_form'>
           <%= tag_form.label :tag_content, 'Tags',class: 'control-label col-md-2' %>
