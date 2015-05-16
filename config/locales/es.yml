@@ -270,6 +270,7 @@ es:
     content: Contenido
     add_tag: Añadir etiqueta
     edit_tag: Editar etiqueta
+    edit_tags: Editar etiquetas
     message:
       created_success: Etiqueta creada correctamente
       updated_success: Etiqueta modificada correctamente

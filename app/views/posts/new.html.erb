@@ -7,21 +7,6 @@
     <hr>
     <%= form_for @post, html: { class: "form-horizontal", role: "form" }  do |f| %>
 
-      <% if @post.errors.any? %>
-            
-        <div class="alert alert-danger fade in">
-          <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h2><%= t('layout.errors') %></h2> 
-          <% @post.errors.full_messages.each do |message| %>   
-            <%= message %>
-            <br>   
-          <% end %> 
-        </div>
-      <% end %>
-
-      
       <%= render 'fields', f:f %>
       
       <%= f.fields_for :tag do | tag_form | %>
@@ -33,13 +18,13 @@
             <%= tag_form.text_field :tag_content, class: "form-control"%>
           </div>
         </div>
+      <% end %>
 
         <div class="form-group">        
           <div class="col-sm-offset-2 col-sm-10">
             <%= f.submit t('button.create'), class: "btn btn-large btn-primary" %>
           </div>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,8 +1,27 @@
-<h1>Edit Post <%= @post.title %></h1>
- <% #por terminar %>
-<%=form_for @post do |f| %>
-  <%= render 'fields', f:f %>
 
-  
-  <%= f.submit t('button.edit'), class: "btn btn-large btn-primary" %>
-<% end %>
+<div class = "row">
+  <div class="span3 offset1">
+
+    <h1>Edit Post <%= @post.title %></h1>
+ 
+
+    <%=form_for @post , html: { class: "form-horizontal", role: "form" } do |f| %>
+      
+      <%= render 'fields', f:f %>
+
+      
+
+
+      <div class="form-group"> 
+        <div class="col-sm-offset-2 col-md-6"  id="edit_btns">
+          <%= f.submit t('button.edit'), class: "btn btn-large btn-primary" %>
+          <%= link_to t('tag.edit_tags'), post_tags_path(@post), class: 'control-label col-md-6' %>    
+        </div>
+      </div>
+      <div class="col-sm-offset-2 col-md-6">
+           
+        </div>
+      
+    <% end %>
+  </div>
+</div>
