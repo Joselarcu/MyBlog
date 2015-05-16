@@ -280,6 +280,7 @@ en:
     content: Content
     add_tag: Add tag
     edit_tag: Edit tag
+    edit_tags: Edit tags
     message:
       created_success: Tag created successfully
       updated_success: Tag updated successfully

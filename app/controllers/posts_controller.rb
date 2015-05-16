@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [ :show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update]
+
   load_and_authorize_resource :only => [:new, :edit, :destroy] 
   
 
@@ -71,4 +72,5 @@ class PostsController < ApplicationController
       post.tags << tag unless post.tags.include? tag
     end
   end
+
 end
