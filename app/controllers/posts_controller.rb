@@ -1,15 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
-
   load_and_authorize_resource :only => [:new, :edit, :destroy] 
   
-
-  
+ 
   def index
     if params[:category] and not params[:category].empty?
-      @posts = Post.where(:category => params[:category]).paginate(:page => params[:page], :per_page => 5)
+      @posts = Post.where(category:  params[:category], language: I18n.locale ).paginate(:page => params[:page], :per_page => 5)
     else
-      @posts = Post.paginate(:page => params[:page], :per_page => 5)
+      @posts = Post.where(language: I18n.locale).paginate(:page => params[:page], :per_page => 5)
     end
   end
 
