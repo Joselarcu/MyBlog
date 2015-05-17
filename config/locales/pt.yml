@@ -207,23 +207,120 @@ pt:
 
 
   button:
-    search: Procurar
+    search: Buscar
+    login: Iniciar sessão
+    close: Fechar
+    delete: Excluir
+    edit: Editar
+    tags: Etiquetas
+    post_comment: Comentar
+    create: Criar
 
-  links:
-  
+  link:
+    add: Adicionar
+    delete: Excluir
+    edit: Editar
 
-    layout:
-    software_engineer: Software Engineer
-    contact: Contact
-    projects: Proyects
-    login: login
-    logout: Logout
-    sign_up: Sign up
-    or: or
-    about: About
+  layout:
+    software_engineer: Engenheiro de computação
+    contact: Contato
+    projects: Proyetos
+    login: Iniciar sessão
+    logout: Saír
+    sign_up: Registrar
+    or: ou
+    about: Sobre mim
+    logged_in_as: "Bemvindo " 
+    errors: Errors
 
   post:
-    search_by: "Procurar por:"
-    read_more: "Lêr mais"
-    category: "Categoría"
-    add_post: "Novo post"
+    search_by: "Buscar por:"
+    read_more: "Leer mais"
+    category: "Categoria"
+    add_post: "Adicionar Post"
+    comments: "Comentarios"
+    leave_your_comment: Deixe seu comentario
+    first: Primeiro
+    sign_up: Registrar
+    login: Iniciar sessão
+    title: Título
+    language: Língua
+    category: Categoria
+    content: Conteúdo
+    new_post: "Novo Post"
+    message:
+      created_success: Post criado com êxito
+      updated_success: Post atualizado com êxito
+
+  session:
+    username: Usuario
+    password: Senha
+    remember_me: Lembrar minha senha
+    login: Iniciar sessão
+    message:
+      logedin: Sessão iniciada corretamente
+      invalid_email: Email ou senha inválidas
+      logedout: sessão fechada
+
+  application:
+    message:
+      no_access: Acesso não autorizado
+
+  comment:
+    new_comment: Novo comentário
+    edit_comment: Editar comentário
+    content: Conteúdo
+    all_comments: Todos os comentário
+    add_comment: Adicionar comentário
+    message:
+      created_success: Comentário criado corretamente
+      updated_success: Comentário modificado correctamente
+      deleted_success: Comentário excluido
+      not_authorized: você não esta autorizado
+
+  tag:
+    new_tag: Nova etiqueta
+    all_tags: Todas as etiquetas
+    content: Conteúdo
+    add_tag: Adicionar etiqueta
+    edit_tag: Editar etiqueta
+    edit_tags: Editar etiquetas
+    message:
+      created_success: Etiqueta criada corretamente
+      updated_success: Etiqueta modificada corretamente
+      deleted_success: Etiqueta excluida
+      
+
+  user:
+    new_user: Novo usuario
+    username: Nome de usuario
+    password: Senha
+    name: Nome
+    surname: Sobrenome
+    password_confirmation: Repita senha
+    edit_user: Editar usuario
+    users: Usuarios
+    message:
+      no_administrator: você não esta autorizado como administrador
+      already_registered: você ja se registrou
+      signed_up_success: O registro foi feito corretamente
+      updated_success: Usuario modificado
+      updated_fail: Não se pode atualizar
+      deleted_success: Usuario excluido corretamente
+      deleted_fail: Usuario não excluido
+      must_login: Primeiro inicie sessão
+
+  activerecord:
+    attributes:
+      post:
+        title: "Título"
+        content: "Conteúo"
+        category: "Categoría"
+        language: Lingua
+        tags: Etiquetas
+
+      user:
+        username: Nome de usuario
+        password: Senha
+        surname: Sobrenome
+        name: Nome
